@@ -1,0 +1,7 @@
+<form method="post" action="{% url 'verify-code' %}">
+    {% csrf_token %}
+    <label for="verification_code">Verification Code:</label>
+    <input type="text" id="verification_code" name="verification_code" required>
+    <input type="hidden" id="phone_number" name="phone_number" value="{{ phone_number }}">
+    <button type="submit">Verify Code</button>
+</form>

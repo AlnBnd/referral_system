@@ -1,0 +1,20 @@
+<h1>Profile</h1>
+<p>Phone Number: {{ user.phone_number }}</p>
+<p>Invite Code: {{ user.invite_code }}</p>
+<p>Activated Invite Code: {{ user.activated_invite_code }}</p>
+
+<h2>Activate Invite Code</h2>
+<form method="post">
+    {% csrf_token %}
+    <input type="text" name="invite_code" placeholder="Invite Code" required>
+    <button type="submit">Activate</button>
+</form>
+
+<h2>Invited Users</h2>
+<ul>
+    {% for phone_number in invited_users %}
+        <li>{{ phone_number }}</li>
+    {% empty %}
+        <li>No invited users</li>
+    {% endfor %}
+</ul>
